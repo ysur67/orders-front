@@ -13,7 +13,7 @@ const IndexPage: React.FC<{}> = () => {
   }
   return (
     <div>
-      <OrdersChart></OrdersChart>
+      <OrdersChart orders={data}></OrdersChart>
       <OrdersTable orders={data}></OrdersTable>
     </div>
   );
