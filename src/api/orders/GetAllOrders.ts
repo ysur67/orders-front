@@ -1,5 +1,5 @@
 import { Order } from "../../models/order";
-import { useQuery, QueryKey } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import http from "../utils/http";
 import { API_ENDPOINTS } from "../utils/endpoints";
 

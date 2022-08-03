@@ -6,7 +6,9 @@ interface OrdersTableParam {
   orders: Array<Order>;
 }
 
-const OrdersTable: React.FC<OrdersTableParam> = ({ orders }) => {
+const OrdersTable: React.FC<
+  OrdersTableParam & React.HTMLAttributes<HTMLDivElement>
+> = ({ orders, className }) => {
   const columns: TableColumn<Order>[] = [
     {
       name: "Номер заказа",
@@ -25,7 +27,7 @@ const OrdersTable: React.FC<OrdersTableParam> = ({ orders }) => {
       selector: (row) => row.deliveryDate.toString(),
     },
   ];
-  return <DataTable columns={columns} data={orders} />;
+  return <DataTable columns={columns} data={orders} className={className} />;
 };
 
 export default OrdersTable;

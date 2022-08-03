@@ -1,7 +1,7 @@
 export interface Order {
-  id: Number;
+  id: number;
   orderId: string;
-  costDollars: Number;
-  costRubles: Number;
+  costDollars: number;
+  costRubles: number;
   deliveryDate: Date;
 }
