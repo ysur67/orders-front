@@ -16,19 +16,19 @@ const IndexPage: React.FC = () => {
   const chartComponent = isLoading ? (
     <Skeleton height={600} width={800} />
   ) : (
-    <OrdersChart orders={data!} />
+    <OrdersChart orders={data} />
   );
 
   const totalPriceComponent = isLoading ? (
     <Skeleton height={100} width={350} className="mb-4" />
   ) : (
-    <TotalOrdersPriceBlock orders={data!} />
+    <TotalOrdersPriceBlock orders={data} />
   );
 
   const ordersTableComponent = isLoading ? (
     <Skeleton height={1000} width={1000} />
   ) : (
-    <OrdersTable orders={data!} />
+    <OrdersTable orders={data} />
   );
 
   return (
