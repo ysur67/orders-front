@@ -8,31 +8,35 @@ import TotalOrdersPriceBlock from "./components/TotalOrderPriceBlock";
 
 const IndexPage: React.FC = () => {
   const { isLoading, data, error: hasErrors } = useOrdersQuery();
-  if (isLoading) {
-    return <IndexPageShimmer />;
-  }
+
   if (hasErrors) {
-    return <span>An error occurred...</span>;
+    return <span className="text-6xl font-bold">An error occurred...</span>;
   }
 
-  return (
-    <div className="flex flex-row w-full justify-between p-10">
-      <OrdersChart orders={data} />
-      <div className="w-full p-2 flex flex-col items-center">
-        <TotalOrdersPriceBlock orders={data} />
-        <OrdersTable orders={data} />
-      </div>
-    </div>
+  const chartComponent = isLoading ? (
+    <Skeleton height={600} width={800} />
+  ) : (
+    <OrdersChart orders={data!} />
   );
-};
 
-export const IndexPageShimmer: React.FC = () => {
+  const totalPriceComponent = isLoading ? (
+    <Skeleton height={100} width={350} className="mb-4" />
+  ) : (
+    <TotalOrdersPriceBlock orders={data!} />
+  );
+
+  const ordersTableComponent = isLoading ? (
+    <Skeleton height={1000} width={1000} />
+  ) : (
+    <OrdersTable orders={data!} />
+  );
+
   return (
     <div className="flex flex-row w-full justify-between p-10">
-      <Skeleton height={600} width={800} />
-      <div className="w-full p-2">
-        <Skeleton height={100} width={350} className="mb-4" />
-        <Skeleton height={600} />
+      {chartComponent}
+      <div className="w-full p-2 flex flex-col items-center">
+        {totalPriceComponent}
+        {ordersTableComponent}
       </div>
     </div>
   );

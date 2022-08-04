@@ -33,7 +33,7 @@ const OrdersChart: React.FC<
       margin={{ top: 5, right: 20, bottom: 5, left: 0 }}
       className={className}
     >
-      <Line type="monotone" dataKey="cost" stroke="#000" />
+      <Line type="monotone" dataKey="cost" stroke="#7C4A6E" />
       <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
       <XAxis dataKey="date" />
       <YAxis />
