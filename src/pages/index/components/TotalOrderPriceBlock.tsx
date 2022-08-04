@@ -12,7 +12,7 @@ const TotalOrdersPriceBlock: React.FC<TotalOrderPriceBlockProps> = ({
     0
   );
   return (
-    <div className="flex flex-col w-80 border-4 border-black">
+    <div className="flex flex-col w-80 border-4 border-black text-center">
       <span className="bg-blue-800 text-white text-2xl">Total</span>
       <span className="text-6xl">{totalPrice}</span>
     </div>
